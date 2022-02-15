@@ -16,10 +16,10 @@ spawn /workspace/pwa-deals/initialize-theme.sh
 match_max 100000
 
 expect "Project root directory (will be created if it does not exist)"
-send -- "pwa-deals\r"
+send -- "dealsdev\r"
 
 expect "Short name of the project to put in the package.json"
-send -- "pwa-deals\r"
+send -- "dealsdev\r"
 
 expect "Name of the author to put in the package.json"
 send -- "xyz@gmail.com\r"
