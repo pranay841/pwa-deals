@@ -4,7 +4,7 @@ DIR="/workspace/pwa-deals/dealsdev"
 if [ ! -d "$DIR" ]; then
     #removing module files from root
     folders=(.github src )
-    files=(.gitignore .editorconfig .eslintrc.js babel.config.json jest.config.js package.json prettier.config.js yarn.lock README.md)
+    files=(.git .gitignore .editorconfig .eslintrc.js babel.config.json jest.config.js package.json prettier.config.js yarn.lock README.md)
 
     for files in "${folders[@]}"; do
         rm -r "$files"
@@ -14,7 +14,7 @@ if [ ! -d "$DIR" ]; then
     done
 
 # https://magento.github.io/pwa-studio/venia-pwa-concept/setup/
-url="https:://deals.humcommerce.com/";
+url="https://deals.humcommerce.com/";
 export MAGENTO_BACKEND_URL="${MAGENTO_BACKEND_URL:-${url}}"
 export CHECKOUT_BRAINTREE_TOKEN="${CHECKOUT_BRAINTREE_TOKEN:-sandbox_8yrzsvtm_s2bg8fs563crhqzk}"
 
@@ -51,7 +51,7 @@ nvm use --lts
 npm install yarn -g
 npm install rimraf -g
 
-cd /workspace/pwa-deals && sudo apt update && sudo apt install expect
+cd /workspace/pwa-deals && sudo apt update && sudo apt -y install expect
 
 chmod a+rwx /workspace/pwa-deals/initialize-theme.sh
 chmod a+rwx /workspace/pwa-deals/install-theme.exp &&
