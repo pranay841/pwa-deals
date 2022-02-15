@@ -3,8 +3,8 @@
 DIR="/workspace/pwa-deals/dealsdev"
 if [ ! -d "$DIR" ]; then
     #removing module files from root
-    folders=(.github src )
-    files=(.git .gitignore .editorconfig .eslintrc.js babel.config.json jest.config.js package.json prettier.config.js yarn.lock README.md)
+    folders=(.github src .git)
+    files=(.gitignore .editorconfig .eslintrc.js babel.config.json jest.config.js package.json prettier.config.js yarn.lock README.md)
 
     for files in "${folders[@]}"; do
         rm -r "$files"
