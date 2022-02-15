@@ -1,0 +1,54 @@
+#!/usr/bin/expect -f
+
+
+set force_conservative 0  ;# set to 1 to force conservative mode even if
+			  ;# script wasn't run conservatively originally
+if {$force_conservative} {
+	set send_slow {1 .1}
+	proc send {ignore arg} {
+		sleep .1
+		exp_send -s -- $arg
+	}
+}
+
+set timeout -1
+spawn /workspace/pwa-deals/initialize-theme.sh
+match_max 100000
+
+expect "Project root directory (will be created if it does not exist)"
+send -- "dealsdev\r"
+
+expect "Short name of the project to put in the package.json"
+send -- "dealsdev\r"
+
+expect "Name of the author to put in the package.json"
+send -- "xyz@gmail.com\r"
+
+expect "Which template would you like to use to bootstrap"
+send -- "\r"
+
+expect "Magento instance to use as a backend"
+send "\033\[B" 
+send "\033\[B" 
+send -- "\r"
+
+expect "URL of a Magento instance to use as a backend"
+send -- "https://deals.humcommerce.com/\r"
+
+expect "Edition of the magento store"
+send "\033\[B" 
+send -- "\r"
+
+expect "Edition of the magento store (Enterprise Edition or Community Edition)"
+send -- "\r"
+
+expect "Braintree API token to use to communicate"
+send -- "\r"
+
+expect "NPM package management client to use"
+send -- "\r"
+
+expect "Install package dependencies with"
+send -- "Y\r"
+
+expect eof

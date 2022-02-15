@@ -1,4 +1,18 @@
 #!/bin/bash
+
+DIR="/workspace/pwa-deals/dealsdev"
+if [ ! -d "$DIR" ]; then
+    #removing module files from root
+    folders=(.github src )
+    files=(.gitignore .editorconfig .eslintrc.js babel.config.json jest.config.js package.json prettier.config.js yarn.lock README.md)
+
+    for files in "${folders[@]}"; do
+        rm -r "$files"
+    done
+    for file in "${files[@]}"; do
+        rm "$file"
+    done
+
 # https://magento.github.io/pwa-studio/venia-pwa-concept/setup/
 url=$(gp url | awk -F"//" {'print $2'}) && url+="/" && url="https://8002-"$url;
 export MAGENTO_BACKEND_URL="${MAGENTO_BACKEND_URL:-${url}}"
@@ -38,3 +52,14 @@ npm install yarn -g
 npm install rimraf -g
 
 cd /workspace/pwa-deals
+
+/workspace/pwa-deals/install-theme.exp
+
+cd /workspace/pwa-deals/dealsdev
+
+yarn buildpack create-custom-origin ./
+
+yarn watch
+
+
+

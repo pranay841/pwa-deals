@@ -20,6 +20,9 @@ RUN sudo apt install -y php-dev
 RUN sudo apt install -y php-pear
 RUN sudo apt-get -y install dialog
 
+RUN sudo apt-get update
+RUN sudo apt install expect
+
 RUN sudo apt-get update \
     && sudo apt-get install -y curl zip unzip git software-properties-common supervisor sqlite3 \
     && sudo add-apt-repository -y ppa:ondrej/php \
