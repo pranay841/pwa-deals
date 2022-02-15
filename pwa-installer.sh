@@ -59,7 +59,7 @@ chmod a+rwx /workspace/pwa-deals/install-theme.exp &&
 
 cd /workspace/pwa-deals/dealsdev && cp -avr .* /workspace/pwa-deals;
 cd /workspace/pwa-deals && rm -r -f dealsdev;
- && yarn buildpack create-custom-origin ./ && yarn watch
+yarn buildpack create-custom-origin ./ && yarn watch
 
 mkdir /workspace/pwa-deals/@hbwsl && cd /workspace/pwa-deals/@hbwsl
 
