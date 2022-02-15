@@ -38,5 +38,3 @@ npm install yarn -g
 npm install rimraf -g
 
 cd /workspace/pwa-deals
-
-yarn create @magento/pwa
