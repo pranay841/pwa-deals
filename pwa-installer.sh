@@ -17,7 +17,7 @@ nvm use --lts
 npm install yarn -g
 npm install rimraf -g
 
-cd /workspace/magento2gitpod/pwa
+cd /workspace/pwa-deals
 #!/bin/bash
 # https://magento.github.io/pwa-studio/venia-pwa-concept/setup/
 url=$(gp url | awk -F"//" {'print $2'}) && url+="/" && url="https://8002-"$url;
@@ -37,6 +37,6 @@ nvm use --lts
 npm install yarn -g
 npm install rimraf -g
 
-cd /workspace/magento2gitpod/pwa
+cd /workspace/pwa-deals
 
 yarn create @magento/pwa
