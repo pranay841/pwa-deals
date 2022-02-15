@@ -14,7 +14,7 @@ if [ ! -d "$DIR" ]; then
     done
 
 # https://magento.github.io/pwa-studio/venia-pwa-concept/setup/
-url=$(gp url | awk -F"//" {'print $2'}) && url+="/" && url="https://8002-"$url;
+url="https:://deals.humcommerce.com/";
 export MAGENTO_BACKEND_URL="${MAGENTO_BACKEND_URL:-${url}}"
 export CHECKOUT_BRAINTREE_TOKEN="${CHECKOUT_BRAINTREE_TOKEN:-sandbox_8yrzsvtm_s2bg8fs563crhqzk}"
 
@@ -51,15 +51,17 @@ nvm use --lts
 npm install yarn -g
 npm install rimraf -g
 
-cd /workspace/pwa-deals
-sudo apt update && sudo apt install expect
+cd /workspace/pwa-deals && sudo apt update && sudo apt install expect
+
+chmod a+rwx /workspace/pwa-deals/initialize-theme.sh
+chmod a+rwx /workspace/pwa-deals/install-theme.exp &&
 /workspace/pwa-deals/install-theme.exp
 
-cd /workspace/pwa-deals/dealsdev
+cd /workspace/pwa-deals/dealsdev && yarn buildpack create-custom-origin ./ && yarn watch
 
-yarn buildpack create-custom-origin ./
+mkdir /workspace/pwa-deals/dealsdev/@hbwsl && cd /workspace/pwa-deals/dealsdev/@hbwsl
 
-yarn watch
+ORIGIN_VALUE=$(git config --get remote.origin.url)
 
-
-
+git clone $ORIGIN_VALUE && mv pwa-deals deals
+fi
