@@ -66,6 +66,5 @@ mkdir /workspace/pwa-deals/@hbwsl && cd /workspace/pwa-deals/@hbwsl
 ORIGIN_VALUE=$(git config --get remote.origin.url)
 
 git clone $ORIGIN_VALUE && mv pwa-deals deals
-
-rm -rf .git
+cd /workspace/pwa-deals && rm -rf .git
 fi
