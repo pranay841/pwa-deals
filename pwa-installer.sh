@@ -52,7 +52,7 @@ npm install yarn -g
 npm install rimraf -g
 
 cd /workspace/pwa-deals
-
+sudo apt update && sudo apt install expect
 /workspace/pwa-deals/install-theme.exp
 
 cd /workspace/pwa-deals/dealsdev

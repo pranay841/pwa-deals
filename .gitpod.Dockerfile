@@ -74,5 +74,3 @@ ENV ES_HOME68="$HOME/elasticsearch-6.8.9"
 RUN curl https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-7.9.3-linux-x86_64.tar.gz --output elasticsearch-7.9.3-linux-x86_64.tar.gz \
     && tar -xzf elasticsearch-7.9.3-linux-x86_64.tar.gz
 ENV ES_HOME79="$HOME/elasticsearch-7.9.3"
-
-RUN sudo apt update && sudo apt install expect
