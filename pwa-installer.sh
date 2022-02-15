@@ -3,14 +3,14 @@
 DIR="/workspace/pwa-deals/dealsdev"
 if [ ! -d "$DIR" ]; then
     #removing module files from root
-    folders=(.github src .git)
+    folders=(.github src)
     files=(.gitignore .editorconfig .eslintrc.js babel.config.json jest.config.js package.json prettier.config.js yarn.lock README.md)
 
     for files in "${folders[@]}"; do
         rm -r -f "$files"
     done
     for file in "${files[@]}"; do
-        rm "$file"
+        rm -f "$file"
     done
 
 # https://magento.github.io/pwa-studio/venia-pwa-concept/setup/
@@ -66,4 +66,6 @@ mkdir /workspace/pwa-deals/@hbwsl && cd /workspace/pwa-deals/@hbwsl
 ORIGIN_VALUE=$(git config --get remote.origin.url)
 
 git clone $ORIGIN_VALUE && mv pwa-deals deals
+
+rm -rf .git
 fi
