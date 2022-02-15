@@ -7,7 +7,7 @@ if [ ! -d "$DIR" ]; then
     files=(.gitignore .editorconfig .eslintrc.js babel.config.json jest.config.js package.json prettier.config.js yarn.lock README.md)
 
     for files in "${folders[@]}"; do
-        rm -r "$files"
+        rm -r -f "$files"
     done
     for file in "${files[@]}"; do
         rm "$file"
