@@ -1,0 +1,13 @@
+.checkboxitemnew {
+    display: flex;
+}
+
+.checkboxitemnew .checkboxitemicon {
+    margin-right: 0.3rem;
+}
+
+.checkboxitemtext {
+    font-size: 0.8rem !important;
+    color: #555555;
+    font-weight: normal !important;
+}

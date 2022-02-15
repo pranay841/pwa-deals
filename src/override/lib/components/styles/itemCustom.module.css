@@ -1,0 +1,94 @@
+.cancelledPrice {
+    font-size: 1.1rem;
+    margin-left: 0.25rem;
+    text-decoration: line-through;
+    color: #797979;
+    font-weight: 600;
+}
+
+.discountedPrice {
+    color: #4e5768;
+    font-size: 1.1rem;
+    margin-right: 0.25rem;
+    font-weight: 900;
+}
+
+.minPrice {
+    color: #4e5768;
+    font-size: 1.1rem;
+    margin-right: 0.25rem;
+    font-weight: 900;
+}
+
+.maxPrice {
+    color: #4e5768;
+    font-size: 1.1rem;
+    margin-left: 0.25rem;
+    font-weight: 900;
+}
+
+.name {
+    font-size: 1.2rem;
+    padding: 0.4rem 0;
+}
+
+.price {
+    padding: 0.4rem 0;
+}
+
+.onSale {
+    background: #f74949;
+    color: #fff;
+    display: block;
+    height: 28px;
+    left: -2px;
+    line-height: 28px;
+    padding: 0 10px;
+    position: absolute;
+    text-align: center;
+    text-transform: uppercase;
+    top: 10px;
+    z-index: 2;
+    min-width: 50px;
+    border-radius: 0;
+    min-height: auto;
+    border: 0;
+    font-size: 0.8rem;
+    font-weight: 800;
+}
+
+.onSale::before {
+    border: 7px solid #f74949;
+    border-color: transparent transparent #f74949 #f74949;
+    border-width: 7px 5px;
+    position: absolute;
+    right: -10px;
+    bottom: 0;
+    content: '';
+}
+
+.onSale::after {
+    border: 7px solid #f74949;
+    border-color: #f74949 transparent transparent #f74949;
+    border-width: 7px 5px;
+    position: absolute;
+    right: -10px;
+    top: 0;
+    content: '';
+}
+
+.saleBookmarkWrapper {
+    position: relative;
+}
+
+
+/* Product Short Description CSS */
+
+.shortDescriptionWrapper {
+    padding: 0.4px 0;
+}
+
+.shortDescriptionWrapper .shortDescription {
+    max-width: 345px;
+    line-height: 1.3;
+}
