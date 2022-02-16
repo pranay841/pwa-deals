@@ -62,10 +62,10 @@ chmod a+rwx /workspace/pwa-deals/install-theme.exp &&
 cd /workspace/pwa-deals/dealsdev
 yarn buildpack create-custom-origin ./ && yarn watch
 
-mkdir /workspace/pwa-deals/@hbwsl && cd /workspace/pwa-deals/@hbwsl
+#mkdir /workspace/pwa-deals/@hbwsl && cd /workspace/pwa-deals/@hbwsl
 
-ORIGIN_VALUE=$(git config --get remote.origin.url)
+#ORIGIN_VALUE=$(git config --get remote.origin.url)
 
-git clone $ORIGIN_VALUE && mv pwa-deals deals
+#git clone $ORIGIN_VALUE && mv pwa-deals deals
 cd /workspace/pwa-deals && rm -rf .git
 fi
