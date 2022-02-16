@@ -14,7 +14,7 @@ if [ ! -d "$DIR" ]; then
     done
 
 # https://magento.github.io/pwa-studio/venia-pwa-concept/setup/
-url="https://deals.humcommerce.com/";
+url="https://master-7rqtwti-mfwmkrjfqvbjk.us-4.magentosite.cloud/";
 export MAGENTO_BACKEND_URL="${MAGENTO_BACKEND_URL:-${url}}"
 export CHECKOUT_BRAINTREE_TOKEN="${CHECKOUT_BRAINTREE_TOKEN:-sandbox_8yrzsvtm_s2bg8fs563crhqzk}"
 

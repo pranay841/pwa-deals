@@ -33,7 +33,7 @@ send "\033\[B"
 send -- "\r"
 
 expect "URL of a Magento instance to use as a backend"
-send -- "https://deals.humcommerce.com/\r"
+send -- "https://master-7rqtwti-mfwmkrjfqvbjk.us-4.magentosite.cloud/\r"
 
 expect "Edition of the magento store"
 send "\033\[B" 
