@@ -16,6 +16,8 @@ vscode:
 tasks:
   - openMode: tab-after
     name: "Services"
-    command: sudo /etc/init.d/supervisor start
+    command: service nginx start &
+             cd /workspace/magento2gitpod && /usr/sbin/php-fpm7.4 --fpm-config php-fpm.conf & 
+             sudo /etc/init.d/supervisor start
   - name: "Terminal/SSH Start here"
     command: chmod a+rwx pwa-installer.sh && ./pwa-installer.sh && echo "Setup completed.."

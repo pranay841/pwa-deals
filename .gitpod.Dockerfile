@@ -38,6 +38,12 @@ RUN sudo apt-get update \
     && sudo update-alternatives --set php /usr/bin/php7.4 \
     && sudo echo "daemon off;" >> /etc/nginx/nginx.conf
 
+#Copy nginx default and php-fpm.conf file
+#COPY default /etc/nginx/sites-available/default
+COPY php-fpm.conf /etc/php/7.4/fpm/php-fpm.conf
+RUN sudo chown -R gitpod:gitpod /etc/php
+
+COPY nginx.conf /etc/nginx
     
 # nvm environment variables
 RUN sudo mkdir -p /usr/local/nvm
