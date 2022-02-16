@@ -6,6 +6,9 @@ ports:
 - port: 9001
 - port: 15672
   visibility: public
+- port: 10000
+  visibility: public
+  
 vscode:
   extensions:
     - TabNine.tabnine-vscode@3.4.14
