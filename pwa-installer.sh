@@ -15,8 +15,8 @@ if [ ! -d "$DIR" ]; then
 
 # https://magento.github.io/pwa-studio/venia-pwa-concept/setup/
 url=$(gp url | awk -F"//" {'print $2'}) && url+="/" && url="https://8002-"$url;
-export MAGENTO_BACKEND_URL="${MAGENTO_BACKEND_URL:-${url}}"
-export CHECKOUT_BRAINTREE_TOKEN="${CHECKOUT_BRAINTREE_TOKEN:-sandbox_8yrzsvtm_s2bg8fs563crhqzk}"
+#export MAGENTO_BACKEND_URL="${MAGENTO_BACKEND_URL:-${url}}"
+#export CHECKOUT_BRAINTREE_TOKEN="${CHECKOUT_BRAINTREE_TOKEN:-sandbox_8yrzsvtm_s2bg8fs563crhqzk}"
 
 rm -rf /workspace/magento2gitpod/node_modules
 rm -rf /workspace/magento2gitpod/.npm
