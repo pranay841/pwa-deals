@@ -38,7 +38,7 @@ chmod a+rwx /workspace/pwa-deals/install-theme.exp &&
 
 cd /workspace/pwa-deals/dealsdev && cp -avr .* /workspace/pwa-deals;
 cd /workspace/pwa-deals && rm -r -f dealsdev;
-cd /workspace/pwa-deals/dealsdev
+cd /workspace/pwa-deals
 
 mkdir /workspace/pwa-deals/@hbwsl && cd /workspace/pwa-deals/@hbwsl
 
@@ -47,5 +47,5 @@ ORIGIN_VALUE=$(git config --get remote.origin.url)
 git clone $ORIGIN_VALUE && mv pwa-deals deals
 cd /workspace/pwa-deals && rm -rf .git
 sed -i 's/_SERVER_PORT=0/_SERVER_PORT=10000/g' /workspace/pwa-deals/.env
-yarn start
+yarn run build && yarn run start
 fi
