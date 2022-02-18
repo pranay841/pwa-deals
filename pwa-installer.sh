@@ -40,32 +40,32 @@ export CHECKOUT_BRAINTREE_TOKEN="${CHECKOUT_BRAINTREE_TOKEN:-sandbox_8yrzsvtm_s2
 
 rm -rf /workspace/magento2gitpod/node_modules
 rm -rf /workspace/magento2gitpod/.npm
-rm -rf /workspace/magento2gitpod/pwa
 
-export NVM_DIR=/workspace/magento2gitpod/pwa/nvm
+export NVM_DIR=/workspace/pwa-deals/nvm
 mkdir -p $NVM_DIR
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.38.0/install.sh | bash
 . "$NVM_DIR/nvm.sh"
-nvm install --lts
-nvm use --lts
+nvm install 16.14.0
+nvm use 16.14.0
 npm install yarn -g
 npm install rimraf -g
 
 cd /workspace/pwa-deals && sudo apt update && sudo apt -y install expect
 
-#chmod a+rwx /workspace/pwa-deals/initialize-theme.sh
-#chmod a+rwx /workspace/pwa-deals/install-theme.exp &&
-#/workspace/pwa-deals/install-theme.exp
+chmod a+rwx /workspace/pwa-deals/initialize-theme.sh
+chmod a+rwx /workspace/pwa-deals/install-theme.exp &&
+/workspace/pwa-deals/install-theme.exp
 
-#cd /workspace/pwa-deals/dealsdev && cp -avr .* /workspace/pwa-deals;
-#cd /workspace/pwa-deals && rm -r -f dealsdev;
-#cd /workspace/pwa-deals/dealsdev
-#yarn buildpack create-custom-origin ./ && yarn watch
+cd /workspace/pwa-deals/dealsdev && cp -avr .* /workspace/pwa-deals;
+cd /workspace/pwa-deals && rm -r -f dealsdev;
+cd /workspace/pwa-deals/dealsdev
 
-#mkdir /workspace/pwa-deals/@hbwsl && cd /workspace/pwa-deals/@hbwsl
+mkdir /workspace/pwa-deals/@hbwsl && cd /workspace/pwa-deals/@hbwsl
 
-#ORIGIN_VALUE=$(git config --get remote.origin.url)
+ORIGIN_VALUE=$(git config --get remote.origin.url)
 
-#git clone $ORIGIN_VALUE && mv pwa-deals deals
+git clone $ORIGIN_VALUE && mv pwa-deals deals
 cd /workspace/pwa-deals && rm -rf .git
+sed -i 's/_SERVER_PORT=0/_SERVER_PORT=10000/g' /workspace/pwa-deals/.env
+yarn start
 fi
