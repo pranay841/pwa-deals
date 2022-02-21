@@ -49,7 +49,7 @@ sed -i 's/_SERVER_PORT=0/_SERVER_PORT=10000/g' /workspace/pwa-deals/.env
 yarn add file:@hbwsl/deals
 yarn add sass sass-loader@^10.1.1 file-saver axios
 
-WEBPACK_CONFIG_EXT = "config.module.rules.push({
+WEBPACK_CONFIG_EXT="config.module.rules.push({
      test: /\.s[ca]ss$/,        
      use: [        
         'style-loader',        
