@@ -1,6 +1,6 @@
 #!/bin/bash
 
-DIR="/workspace/pwa-deals/dealsdev"
+DIR="/workspace/pwa-deals/@hbwsl"
 if [ ! -d "$DIR" ]; then
     #removing module files from root
     folders=(.github src)
@@ -14,9 +14,7 @@ if [ ! -d "$DIR" ]; then
     done
 
 # https://magento.github.io/pwa-studio/venia-pwa-concept/setup/
-url=$(gp url | awk -F"//" {'print $2'}) && url+="/" && url="https://8002-"$url;
-#export MAGENTO_BACKEND_URL="${MAGENTO_BACKEND_URL:-${url}}"
-#export CHECKOUT_BRAINTREE_TOKEN="${CHECKOUT_BRAINTREE_TOKEN:-sandbox_8yrzsvtm_s2bg8fs563crhqzk}"
+
 
 rm -rf /workspace/magento2gitpod/node_modules
 rm -rf /workspace/magento2gitpod/.npm
@@ -47,5 +45,27 @@ ORIGIN_VALUE=$(git config --get remote.origin.url)
 git clone $ORIGIN_VALUE && mv pwa-deals deals
 cd /workspace/pwa-deals && rm -rf .git
 sed -i 's/_SERVER_PORT=0/_SERVER_PORT=10000/g' /workspace/pwa-deals/.env
+
+yarn add file:@hbwsl/deals
+yarn add sass sass-loader@^10.1.1 file-saver axios
+
+WEBPACK_CONFIG_EXT = "config.module.rules.push({
+     test: /\.s[ca]ss$/,        
+     use: [        
+        'style-loader',        
+        {        
+            loader: require.resolve('css-loader'),
+            options: {
+                importLoaders: 1,
+                modules: true,
+                modules : {
+                localIdentName: '[name]__[local]__[hash:base64:3]',
+                },
+            },
+        },
+        'sass-loader'
+        ]
+    });"
+sed  "/return \[config\]/i $WEBPACK_CONFIG_EXT" /workspace/pwa-deals/webpack.config.js
 yarn run build && yarn run start
 fi
