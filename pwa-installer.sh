@@ -66,6 +66,22 @@ WEBPACK_CONFIG_EXT="config.module.rules.push({
         'sass-loader'
         ]
     });"
-sed  -i".bak" -e  "/return \[config\]/i $WEBPACK_CONFIG_EXT" /workspace/pwa-deals/webpack.config.js
+sed  -i".bak" -e  "/return \[config\]/i config.module.rules.push({
+     
+     use: [        
+        'style-loader',        
+        {        
+            loader: require.resolve('css-loader'),
+            options: {
+                importLoaders: 1,
+                modules: true,
+                modules : {
+                localIdentName: '[name]__[local]__[hash:base64:3]',
+                },
+            },
+        },
+        'sass-loader'
+        ]
+    });" /workspace/pwa-deals/webpack.config.js
 yarn run build && yarn run start
 fi
