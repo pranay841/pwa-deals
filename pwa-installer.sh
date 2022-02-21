@@ -49,39 +49,7 @@ sed -i 's/_SERVER_PORT=0/_SERVER_PORT=10000/g' /workspace/pwa-deals/.env
 yarn add file:@hbwsl/deals
 yarn add sass sass-loader@^10.1.1 file-saver axios
 
-WEBPACK_CONFIG_EXT="config.module.rules.push({
-     test: /\.s[ca]ss$/,        
-     use: [        
-        'style-loader',        
-        {        
-            loader: require.resolve('css-loader'),
-            options: {
-                importLoaders: 1,
-                modules: true,
-                modules : {
-                localIdentName: '[name]__[local]__[hash:base64:3]',
-                },
-            },
-        },
-        'sass-loader'
-        ]
-    });"
-sed  -i".bak" -e  "/return \[config\]/i config.module.rules.push({
-     
-     use: [        
-        'style-loader',        
-        {        
-            loader: require.resolve('css-loader'),
-            options: {
-                importLoaders: 1,
-                modules: true,
-                modules : {
-                localIdentName: '[name]__[local]__[hash:base64:3]',
-                },
-            },
-        },
-        'sass-loader'
-        ]
-    });" /workspace/pwa-deals/webpack.config.js
+WEBPACK_CONFIG_EXT="config.module.rules.push({test: /\.s[ca]ss$/,use: ['style-loader',{loader: require.resolve('css-loader'),options: {importLoaders: 1,modules: true,modules : {localIdentName: '[name]__[local]__[hash:base64:3]',},},},'sass-loader']});"
+&& sed  -i".bak" -e  "/return \[config\]/i $WEBPACK_CONFIG_EXT" /workspace/pwa-deals/webpack.config.js
 yarn run build && yarn run start
 fi
